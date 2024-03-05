@@ -25,7 +25,7 @@ Technologies Used
 
 4. Run the development server:
 	python manage.py runserver
-	Access the application in your web browser at http://127.0.0.1:8000/.
+	Access the application in your web browser at http://127.0.0.1:8000/evaluate/.
 
 5. Usage
 	Enter an arithmetic expression in the input field.
