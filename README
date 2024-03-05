@@ -1,0 +1,35 @@
+Arithmetic  Expression Evaluator
+	Arithmetic Expression Evaluator is a simple web application that allows users to input arithmetic expressions, sends them to a Python backend API for computation, and displays the result on the UI.
+
+Features
+	Users can input arithmetic expressions containing addition and subtraction operations.
+	The expressions are sent to a Python backend API for computation.
+	The result is displayed on the UI.
+
+Technologies Used
+	Python
+	Django
+	JavaScript
+	HTML
+	CSS
+1. Setup Instructions
+	Clone the repository:
+
+	git clone <repository-url>
+
+2. Navigate to the project directory:
+	cd arithmetic-expression-evaluator
+
+3. Install dependencies:
+	pip install -r requirements.txt
+
+4. Run the development server:
+	python manage.py runserver
+	Access the application in your web browser at http://127.0.0.1:8000/.
+
+5. Usage
+	Enter an arithmetic expression in the input field.
+	Click the "Submit" button.
+	The result of the expression will be displayed on the UI.
+	
+

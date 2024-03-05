@@ -1,0 +1,60 @@
+<!-- templates/expression/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Expression Evaluator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Arithmetic Expression Evaluator</h1>
+    <form id="expressionForm">
+        {% csrf_token %}
+        <label for="expression">Enter Arithmetic Expression:</label><br>
+        <input type="text" id="expression" name="expression" required><br>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="result"></div>
+
+    <script> 
+        document.getElementById("expressionForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let expression = document.getElementById("expression").value;
+		
+            fetch('{% url "evaluate_expression" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}',
+                },
+                body: JSON.stringify({ expression: expression })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("result").innerText = "Result: " + data.result;
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
